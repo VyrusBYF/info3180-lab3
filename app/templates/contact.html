@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block main %}
+	
+	<head>
+      <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">      
+    <link rel="stylesheet" type="text/css" href="../static/css/app.css">
+      <title>Contact</title>
+    </head>
+
+    <style>
+    
+    </style>
+  <body>
+    <h1> Contact Form </h1>
+      <div id="section1"> </div>
+
+    <form action="/process" method="post">
+
+      <br><p style="margin-top:5px;">Fill in this form to contact the site owners. </p>
+      <div>
+        <label for="name"> Name <p id="required">(Required)</p></label>
+          <p id="prompt">Please enter your full name </p>
+          <input type="text" id="name" name="full_name" />
+      </div><br>
+      <div>
+        <label for="mail">E-mail <p id="required">(Required)</p></label>
+        <p id="prompt">Please enter your e-mail address </p>
+        <input type="email" id="mail" name="email" /><br>
+      </div><br>
+      <div>
+        <label for="mail">Subject <p id="required">(Required)</p></label>
+        <p id="prompt">Please enter the subject for your message.</p>
+        <input type="text" id="sub" name="subject" /><br>
+      </div><br>
+      <div>
+        <label for="msg">Message <p id="required">(Required)</p></label><br> 
+        <p id="prompt">Please enter the message you would like to send.</p>
+        <textarea id="msg" name="message"></textarea>
+      </div>
+      <button class="button" type="submit">Send</button>
+    </form>
+    </body>
+
+{% endblock %}
