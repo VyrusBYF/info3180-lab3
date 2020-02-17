@@ -2,7 +2,14 @@ from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.validators import DataRequired
 
-class ConstactForm(FlaskForm):
-    name = StringField('name', validators=[DataRequired()])
-    email = StringField('email', validators=[DataRequired()])
-    subject = StringField('subject', validators=[DataRequired()])
+class ContactForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired()])
+    subject = StringField('Subject', validators=[DataRequired()])
+    message = StringField('Message', validators=[DataRequired()])
+
+    
+    
+    
+    
+    
