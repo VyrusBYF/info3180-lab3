@@ -5,6 +5,7 @@ Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 This file creates your application.
 """
 
+import os
 from app import app
 from app import mail
 
@@ -28,21 +29,23 @@ def about():
     """Render the website's about page."""
     return render_template('about.html', name="Mary Jane")
 
-@app.route('/contact/', methods= ["GET","POST"])
+@app.route('/contact', methods=["GET", "POST"])
 def contact():
     form = ContactForm()
     if request.method == 'POST':
-        name = form.Name.data
-        email = form.Email.data
-        subject = form.Subject.data
-        message = form.Message.data
-        msg = Message(subject, sender=(name,email),recipients=["1cf54a08c2b505@inbox.mailtrap.io"])
-        flash('Form completed!', 'success')
+
+        name = form.name.data
+        email = form.email.data
+        subject = form.subject.data
+        message = form.message.data
+
+        msg = Message(subject, sender=(name, email), recipients=["a6e69748d5-651ca1@inbox.mailtrap.io"])
+        flash('Form completed!')
         msg.body = message
         mail.send(msg)
-        return render_template('home.html')
-    
-    return render_template('contact.html', form = form)
+        return redirect (url_for("home"))
+
+    return render_template('contact.html', form=form)
 
 
 

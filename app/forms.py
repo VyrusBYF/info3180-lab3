@@ -7,9 +7,3 @@ class ContactForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired()])
     subject = StringField('Subject', validators=[DataRequired()])
     message = StringField('Message', validators=[DataRequired()])
-
-    
-    
-    
-    
-    
